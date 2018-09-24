@@ -1,0 +1,7 @@
+﻿*.iml
+/.idea/
+*.iws
+*.ipr
+target/
+logs/
+.ideaDataSources

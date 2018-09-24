@@ -1,0 +1,61 @@
+CREATE TABLE Accounts
+(
+  ID         int auto_increment primary key,
+  Login      CHAR(15)    not null,
+  Password   Char(15)    not null,
+  Name       CHAR(15)    not null,
+  LastName   CHAR(15)    not null,
+  PassportId VARCHAR(20) not null
+);
+CREATE TABLE Rooms
+(
+  ID         int auto_increment primary key,
+  Class      CHAR(10) not null,
+  Places     CHAR(15),
+  Cost       LONG,
+  isAvalible CHAR(12)
+);
+CREATE TABLE CreditCards
+(
+  Id           int auto_increment primary key,
+  CreditNumber CHAR(16) not null,
+  CardHolder   VARCHAR(25)
+);
+CREATE TABLE Orders
+(
+  Id        int auto_increment primary key,
+  DATE      DATETIME not null,
+  Cost      DECIMAL  not null,
+  Login     CHAR(15),
+  Confirmed Char(13)
+);
+CREATE TABLE Contacts
+(
+  Id      int auto_increment primary key,
+  Address VARCHAR(25),
+  Phone   VARCHAR(20)
+);
+CREATE TABLE Client
+(
+  Id       int auto_increment primary key,
+  Name     CHAR(15),
+  LastName CHAR(15),
+  Age      INT
+);
+CREATE TABLE orders
+(
+    Id int PRIMARY KEY AUTO_INCREMENT,
+    Login CHAR(20),
+    Date DATETIME,
+    Quantity int,
+    Status CHAR(20),
+    Total DOUBLE,
+    CONSTRAINT orders_accounts_acc_fk FOREIGN KEY (Id) REFERENCES accounts (ID)
+);
+INSERT INTO rooms (Class, Places, Cost, isAvalible)
+VALUES ('Standard', 'Single Room', '69.99', 'Available'),
+  ('Standard', 'Double Room', '118.95', 'Available'),
+  ('Standard', 'Triple', '150.45', 'Available'),
+  ('Standard', 'Apartment', '201.95', 'Available'),
+  ('Lux', 'Business', '289.50', 'Available'),
+  ('Lux', 'President', '399.99', 'Available');
