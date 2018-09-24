@@ -5,4 +5,4 @@
 target/
 logs/
 .ideaDataSources
-out/
+/out/
